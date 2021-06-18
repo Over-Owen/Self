@@ -8,11 +8,11 @@ data class MovieDetails(
     val id: Int,
     val overview: String,
     val popularity: Double,
-    @SerializedName("poster_path")      //告诉JSON这个和下面的两个是同一个东西，只是名字大小写
+    @SerializedName("poster_path")          //告诉JSON这个和下面的两个是同一个东西，只是名字大小写
     val posterPath: String,
     @SerializedName("release_date")
     val releaseDate: String,
-    val revenue: Int,
+    val revenue: Long,
     val runtime: Int,
     val status: String,
     val tagline: String,
