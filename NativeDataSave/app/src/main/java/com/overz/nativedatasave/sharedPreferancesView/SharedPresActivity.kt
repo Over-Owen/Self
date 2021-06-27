@@ -62,8 +62,12 @@ class SharedPresActivity : AppCompatActivity() {
         if (isCheckedInfo) {
             val accountGet = share.getString("account", null)
             val passwordGet = share.getString("password", null)
+            val isChecked = share.getBoolean("isChecked",false)
             account_input.setText(accountGet)
             password_input.setText(passwordGet)
+            remmber_account.isChecked = true
+
+
         }
 
     }
