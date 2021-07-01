@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.overz.roomoperatedatabase.R
-import com.overz.roomoperatedatabase.data.User
-import com.overz.roomoperatedatabase.data.UserViewModel
+import com.overz.roomoperatedatabase.model.User
+import com.overz.roomoperatedatabase.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
@@ -43,18 +43,17 @@ class AddFragment : Fragment() {
         val sex = sex_male.isChecked
         if (inputCheck(firstName, lastName, age)) {
             // Create User Object
-            val user = User(0, firstName, lastName, Integer.parseInt(age.toString()),sex)
+            val user = User(0, firstName, lastName, Integer.parseInt(age.toString()), sex)
             // Add Data to Database
             mUserViewModel.addUser(user)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-            // Navigate Back
+            // Navigate Back 返回list fragment
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG)
-                .show()
+            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
         }
     }
-
+    //检查输入的信息是否为空
     private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
         return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
     }

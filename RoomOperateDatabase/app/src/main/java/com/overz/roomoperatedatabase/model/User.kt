@@ -1,7 +1,9 @@
-package com.overz.roomoperatedatabase.data
+package com.overz.roomoperatedatabase.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
 
 /**
@@ -11,6 +13,7 @@ import androidx.room.PrimaryKey
  * </p>
  */
 //不加(tableName = "user_table")，则默认表名称为 User
+@Parcelize
 @Entity(tableName = "user_table")
 data class User(
     //设置默认主键，自动生成true
@@ -20,4 +23,4 @@ data class User(
     val lastName: String,
     val age: Int,
     val sex: Boolean
-)
+): Parcelable

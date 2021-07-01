@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.overz.roomoperatedatabase.model.User
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
@@ -23,7 +24,7 @@ abstract class UserDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     UserDatabase::class.java,
-                    "user_database"
+                    "user_database.db"
                 ).build()
                 INSTANCE = instance
                 return instance
