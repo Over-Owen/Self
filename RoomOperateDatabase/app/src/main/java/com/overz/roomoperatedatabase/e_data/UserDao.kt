@@ -2,7 +2,7 @@ package com.overz.roomoperatedatabase.e_data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.overz.roomoperatedatabase.d_model.User
+import com.overz.roomoperatedatabase.model.User
 
 
 /**
@@ -21,15 +21,13 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
+    @Delete
+    suspend fun deleteUser(user: User)
+
+    @Query("DELETE FROM user_table")
+    suspend fun deleteAllUsers()
+
     @Query("SELECT * FROM user_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<User>>
-
-    //删除个别用户
-    @Delete
-    suspend fun deleteUser(user:User)
-
-    //删除全部用户
-    @Query("DELETE FROM user_table" )
-    suspend fun deleteAllUser()
 
 }

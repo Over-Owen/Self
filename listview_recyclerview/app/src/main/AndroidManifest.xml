@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Listview_recyclerview">
-        <activity android:name=".list_view_test.ListViewActivity"></activity>
-        <activity android:name=".recycler_view_test.RecyclerViewActivity" />
-        <activity android:name=".recycler_view_test2.RecyclerViewTestActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".list_view_test2.ListView2Activity">
+        <activity android:name="com.overz.list_view.baseAdapter.BaseAdapterActivity"></activity>
+        <activity android:name="com.overz.list_view.simpleAdapter.SimpleAdapterActivity" />
+        <activity android:name="com.overz.list_view.arrayAdapter.ArrayAdapterActivity" />
+        <activity android:name="com.overz.list_view.list_view_test.ListViewActivity" />
+        <activity android:name="com.overz.list_view.list_view_test2.ListView2Activity" />
+        <activity android:name="com.overz.list_view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".list_view_test.ListViewActivity">
+    tools:context="com.overz.list_view.list_view_test.ListViewActivity">
 
     <ListView
         android:id="@+id/listView"

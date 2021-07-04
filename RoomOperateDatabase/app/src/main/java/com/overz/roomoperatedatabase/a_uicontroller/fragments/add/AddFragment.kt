@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.overz.roomoperatedatabase.R
-import com.overz.roomoperatedatabase.d_model.User
+import com.overz.roomoperatedatabase.model.User
 import com.overz.roomoperatedatabase.b_viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
@@ -52,10 +52,13 @@ class AddFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
         }
+
     }
-    //检查输入的信息是否为空
-    private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
+
+    private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean{
         return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
     }
 
 }
+
+

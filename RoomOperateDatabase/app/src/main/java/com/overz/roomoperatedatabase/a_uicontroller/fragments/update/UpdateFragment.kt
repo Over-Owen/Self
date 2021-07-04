@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.overz.roomoperatedatabase.R
-import com.overz.roomoperatedatabase.d_model.User
+import com.overz.roomoperatedatabase.model.User
 import com.overz.roomoperatedatabase.b_viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
+
     private lateinit var mUserViewModel: UserViewModel
 
     override fun onCreateView(
@@ -45,13 +46,12 @@ class UpdateFragment : Fragment() {
             updateItem()
         }
 
-        //添加菜单
+        // Add menu
         setHasOptionsMenu(true)
 
         return view
     }
 
-    //更新数据库中的数据
     private fun updateItem() {
         val firstName = updateFirstName_et.text.toString()
         val lastName = updateLastName_et.text.toString()
@@ -71,7 +71,6 @@ class UpdateFragment : Fragment() {
         }
     }
 
-    //检查输入的信息是否为空
     private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
         return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
     }
@@ -81,32 +80,25 @@ class UpdateFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if (item.itemId == R.id.menu_delete) {
             deleteUser()
         }
         return super.onOptionsItemSelected(item)
     }
-    //删除用户
+
     private fun deleteUser() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("YES") { _, _ ->
-
+        builder.setPositiveButton("Yes") { _, _ ->
             mUserViewModel.deleteUser(args.currentUser)
-            Toast.makeText(requireContext(),"成功删除${args.currentUser.firstName}",Toast.LENGTH_SHORT).show()
-            //Navigate Back 导航返回List Fragment
+            Toast.makeText(
+                requireContext(),
+                "Successfully removed: ${args.currentUser.firstName}",
+                Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-
-
         }
-        builder.setNegativeButton("NO") { _, _ ->
-
-
-            Toast.makeText(requireContext(),"取消删除${args.currentUser.firstName}",Toast.LENGTH_SHORT).show()
-        }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentUser.firstName}?")
-        builder.setMessage("Are you sure to delete ${args.currentUser.firstName}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentUser.firstName}?")
         builder.create().show()
     }
-
 }
