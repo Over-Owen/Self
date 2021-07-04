@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<!--头像，昵称，发表时间，内容，点赞，评论，转发-->
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/user_nick_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="昵称"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/user_avatar"
+        app:layout_constraintTop_toTopOf="@+id/user_avatar" />
+    <TextView
+        android:id="@+id/publish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="2048-10-24"
+        app:layout_constraintBottom_toBottomOf="@+id/user_avatar"
+        app:layout_constraintStart_toEndOf="@+id/user_avatar" />
+
+    <TextView
+        android:id="@+id/publish_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="hahahaahaha"
+        app:layout_constraintTop_toBottomOf="@+id/publish_time" />
+
+    <ImageView
+        android:id="@+id/publish_repost"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/repost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/publish_content" />
+
+    <ImageView
+        android:id="@+id/publish_like"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/heart_no"
+        app:layout_constraintBottom_toBottomOf="@+id/publish_repost"
+        app:layout_constraintEnd_toStartOf="@+id/publish_repost" />
+
+    <ImageView
+        android:id="@+id/publish_comment"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/comment"
+        app:layout_constraintBottom_toBottomOf="@+id/publish_repost"
+        app:layout_constraintEnd_toStartOf="@+id/publish_like" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
